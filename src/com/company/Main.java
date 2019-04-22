@@ -10,7 +10,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Main {
 
@@ -87,6 +89,7 @@ public class Main {
             } else if (text.matches("u:\\[(\\d+,)+\\d+]")) {
                 arr = Arrays.stream(text.split("u:")[1].substring(1, text.split("u:")[1].length() - 1).split(","))
                         .map(String::trim).mapToInt(Integer::parseInt).toArray();
+                HashSet<Integer> thisset = new HashSet<>();
                 for (int each1 : arr) {
                     if (Parking.getTotalspace() >= each1) {
                         counter = -1;
